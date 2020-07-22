@@ -1,68 +1,69 @@
 package ru.netology.stats;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Сервис для тестирования статистики")
 class StatsServiceTest {
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "calculateSum, [8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18], 180",
-    })
-    void calculateSum(String test, int[] sales, int expected) {
+    @Test
+    @DisplayName("Сумма всех продаж")
+    void calculateSum() {
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
         int actual = service.calculateSum(sales);
+        int expected = 180;
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "'calculateAverage'[8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18],15",
-    })
-    void calculateAverage(String test, int[] sales, int expected) {
+    @Test
+    @DisplayName("Средняя сумму продаж в месяц")
+    void calculateAverage() {
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
         int actual = service.calculateAverage(sales);
+        int expected = 15;
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "'calculateMaxSales'[8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18],8",
-    })
-    void calculateMaxSales(String test, int[] sales, int expected) {
+    @Test
+    @DisplayName("Месяц, в котором был пик продаж")
+    void calculateMaxSales() {
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
         int actual = service.calculateMaxSales(sales);
+        int expected = 8;
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "'calculateMinSales'[8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18],9",
-    })
-    void calculateMinSales(String test, int[] sales, int expected) {
+    @Test
+    @DisplayName("Месяц, в котором было минимум продаж")
+    void calculateMinSales() {
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
         int actual = service.calculateMinSales(sales);
+        int expected = 9;
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "'calculateMoreAverageSales'[8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18],5",
-    })
-    void calculateMoreAverageSales(String test, int[] sales, int expected) {
+    @Test
+    @DisplayName("Количество месяцев с продажами выше среднего")
+    void calculateMoreAverageSales() {
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
         int actual = service.calculateMoreAverageSales(sales);
+        int expected = 5;
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {
-            "'calculateLessAverageSales'[8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18],5",
-    })
-    void calculateLessAverageSales(String test, int[] sales, int expected) {
+    @Test
+    @DisplayName("Количество месяцев с продажами ниже среднего")
+    void calculateLessAverageSales() {
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
         int actual = service.calculateLessAverageSales(sales);
+        int expected = 5;
         assertEquals(expected, actual);
     }
 }
