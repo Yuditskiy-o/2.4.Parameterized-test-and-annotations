@@ -10,11 +10,8 @@ public class StatsService {
     }
 
     public int calculateAverage(int[] averageSales) {
-        int average = 0;
-        int sum = 0;
-        for (int i : averageSales) {
-            sum += i;
-        }
+        int average;
+        int sum = calculateSum(averageSales);
         average = sum / averageSales.length;
         return average;
     }
@@ -48,8 +45,7 @@ public class StatsService {
         int sumMoreAverage = 0;
         for (int moreAverageSale : moreAverageSales) {
             if (moreAverageSale > average) {
-                moreAverageSale = 1;
-                sumMoreAverage += moreAverageSale;
+                sumMoreAverage++;
             }
 
         }
@@ -57,12 +53,11 @@ public class StatsService {
     }
 
     public int calculateLessAverageSales(int[] lessAverageSales) {
-        int average = calculateAverage(lessAverageSales);
         int sumLessAverage = 0;
+        int average = calculateAverage(lessAverageSales);
         for (int lessAverageSale : lessAverageSales) {
             if (lessAverageSale < average) {
-                lessAverageSale = 1;
-                sumLessAverage += lessAverageSale;
+                sumLessAverage++;
             }
         }
         return sumLessAverage;
