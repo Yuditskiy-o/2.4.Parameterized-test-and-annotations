@@ -10,9 +10,8 @@ public class StatsService {
     }
 
     public int calculateAverage(int[] averageSales) {
-        int average;
         int sum = calculateSum(averageSales);
-        average = sum / averageSales.length;
+        int average = sum / averageSales.length;
         return average;
     }
 
