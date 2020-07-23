@@ -59,10 +59,10 @@ public class StatsService {
     public int calculateLessAverageSales(int[] lessAverageSales) {
         int average = calculateAverage(lessAverageSales);
         int sumLessAverage = 0;
-        for (int moreAverageSale : lessAverageSales) {
-            if (moreAverageSale < average) {
-                moreAverageSale = 1;
-                sumLessAverage += moreAverageSale;
+        for (int lessAverageSale : lessAverageSales) {
+            if (lessAverageSale < average) {
+                lessAverageSale = 1;
+                sumLessAverage += lessAverageSale;
             }
         }
         return sumLessAverage;
